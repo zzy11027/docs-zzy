@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>js继承、js渲染机制、设计模式 、状态码 | 南城花开zy</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/docs-zzy/images/logo.jpg">
+    <meta name="description" content="乘风破浪会有时！">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="vuepress, blog, 前端, HTML5, CSS3，javascript, typescript">
+    <meta name="copyright" content="zkk">
+    <meta name="robots" content="all">
+    <link rel="preload" href="/docs-zzy/assets/css/0.styles.8bb96e49.css" as="style"><link rel="preload" href="/docs-zzy/assets/js/app.f5fb1f06.js" as="script"><link rel="preload" href="/docs-zzy/assets/js/3.7a4e40be.js" as="script"><link rel="preload" href="/docs-zzy/assets/js/1.f25b10cd.js" as="script"><link rel="preload" href="/docs-zzy/assets/js/174.6b48683a.js" as="script"><link rel="prefetch" href="/docs-zzy/assets/js/10.d11b19ec.js"><link rel="prefetch" href="/docs-zzy/assets/js/100.ce777226.js"><link rel="prefetch" href="/docs-zzy/assets/js/101.755eaf0c.js"><link rel="prefetch" href="/docs-zzy/assets/js/102.fecc4609.js"><link rel="prefetch" href="/docs-zzy/assets/js/103.06077d3a.js"><link rel="prefetch" href="/docs-zzy/assets/js/104.ca408922.js"><link rel="prefetch" href="/docs-zzy/assets/js/105.4b6df64c.js"><link rel="prefetch" href="/docs-zzy/assets/js/106.47e13520.js"><link rel="prefetch" href="/docs-zzy/assets/js/107.745c0fea.js"><link rel="prefetch" href="/docs-zzy/assets/js/108.38f4f241.js"><link rel="prefetch" href="/docs-zzy/assets/js/109.991617d7.js"><link rel="prefetch" href="/docs-zzy/assets/js/11.114ab1ac.js"><link rel="prefetch" href="/docs-zzy/assets/js/110.4b3f1128.js"><link rel="prefetch" href="/docs-zzy/assets/js/111.42154d37.js"><link rel="prefetch" href="/docs-zzy/assets/js/112.c1b1c946.js"><link rel="prefetch" href="/docs-zzy/assets/js/113.1380d5d8.js"><link rel="prefetch" href="/docs-zzy/assets/js/114.d43228fe.js"><link rel="prefetch" href="/docs-zzy/assets/js/115.cabc3276.js"><link rel="prefetch" href="/docs-zzy/assets/js/116.26f15466.js"><link rel="prefetch" href="/docs-zzy/assets/js/117.28f6fb0c.js"><link rel="prefetch" href="/docs-zzy/assets/js/118.c495682f.js"><link rel="prefetch" href="/docs-zzy/assets/js/119.57c35116.js"><link rel="prefetch" href="/docs-zzy/assets/js/12.1992a4cd.js"><link rel="prefetch" href="/docs-zzy/assets/js/120.c7bad023.js"><link rel="prefetch" href="/docs-zzy/assets/js/121.b8eb46f1.js"><link rel="prefetch" href="/docs-zzy/assets/js/122.aab1f4b5.js"><link rel="prefetch" href="/docs-zzy/assets/js/123.c4574035.js"><link rel="prefetch" href="/docs-zzy/assets/js/124.b388f74d.js"><link rel="prefetch" href="/docs-zzy/assets/js/125.338c83ed.js"><link rel="prefetch" href="/docs-zzy/assets/js/126.49de3b75.js"><link rel="prefetch" href="/docs-zzy/assets/js/127.50a0a353.js"><link rel="prefetch" href="/docs-zzy/assets/js/128.b318515a.js"><link rel="prefetch" href="/docs-zzy/assets/js/129.b028c62e.js"><link rel="prefetch" href="/docs-zzy/assets/js/13.ad36c608.js"><link rel="prefetch" href="/docs-zzy/assets/js/130.9d88ba46.js"><link rel="prefetch" href="/docs-zzy/assets/js/131.941098a3.js"><link rel="prefetch" href="/docs-zzy/assets/js/132.d1018f2c.js"><link rel="prefetch" href="/docs-zzy/assets/js/133.e78db2ca.js"><link rel="prefetch" href="/docs-zzy/assets/js/134.1c8e82a0.js"><link rel="prefetch" href="/docs-zzy/assets/js/135.8cf299a4.js"><link rel="prefetch" href="/docs-zzy/assets/js/136.e1d06f12.js"><link rel="prefetch" href="/docs-zzy/assets/js/137.1e414b74.js"><link rel="prefetch" href="/docs-zzy/assets/js/138.5676e585.js"><link rel="prefetch" href="/docs-zzy/assets/js/139.619f6472.js"><link rel="prefetch" href="/docs-zzy/assets/js/14.7022b6e7.js"><link rel="prefetch" href="/docs-zzy/assets/js/140.55904f59.js"><link rel="prefetch" href="/docs-zzy/assets/js/141.1a450708.js"><link rel="prefetch" href="/docs-zzy/assets/js/142.4207ec1d.js"><link rel="prefetch" href="/docs-zzy/assets/js/143.d04b85ae.js"><link rel="prefetch" href="/docs-zzy/assets/js/144.f32a4caa.js"><link rel="prefetch" href="/docs-zzy/assets/js/145.609c8aff.js"><link rel="prefetch" href="/docs-zzy/assets/js/146.aa302989.js"><link rel="prefetch" href="/docs-zzy/assets/js/147.4706d41f.js"><link rel="prefetch" href="/docs-zzy/assets/js/148.a20fb0c7.js"><link rel="prefetch" href="/docs-zzy/assets/js/149.332df16c.js"><link rel="prefetch" href="/docs-zzy/assets/js/15.a142292c.js"><link rel="prefetch" href="/docs-zzy/assets/js/150.4ed99bcb.js"><link rel="prefetch" href="/docs-zzy/assets/js/151.f06868a2.js"><link rel="prefetch" href="/docs-zzy/assets/js/152.d4186b23.js"><link rel="prefetch" href="/docs-zzy/assets/js/153.fe4a7525.js"><link rel="prefetch" href="/docs-zzy/assets/js/154.01ea5683.js"><link rel="prefetch" href="/docs-zzy/assets/js/155.282557e7.js"><link rel="prefetch" href="/docs-zzy/assets/js/156.89296834.js"><link rel="prefetch" href="/docs-zzy/assets/js/157.6bf393ad.js"><link rel="prefetch" href="/docs-zzy/assets/js/158.70b1f4fd.js"><link rel="prefetch" href="/docs-zzy/assets/js/159.c36757a7.js"><link rel="prefetch" href="/docs-zzy/assets/js/16.d6ac0b4e.js"><link rel="prefetch" href="/docs-zzy/assets/js/160.7edfed0b.js"><link rel="prefetch" href="/docs-zzy/assets/js/161.8c94ca17.js"><link rel="prefetch" href="/docs-zzy/assets/js/162.1d61cef6.js"><link rel="prefetch" href="/docs-zzy/assets/js/163.d618e6a0.js"><link rel="prefetch" href="/docs-zzy/assets/js/164.b0cdc5fb.js"><link rel="prefetch" href="/docs-zzy/assets/js/165.ea04db22.js"><link rel="prefetch" href="/docs-zzy/assets/js/166.642f6cc5.js"><link rel="prefetch" href="/docs-zzy/assets/js/167.c83a3473.js"><link rel="prefetch" href="/docs-zzy/assets/js/168.2b238e6c.js"><link rel="prefetch" href="/docs-zzy/assets/js/169.f343477b.js"><link rel="prefetch" href="/docs-zzy/assets/js/17.580a60b2.js"><link rel="prefetch" href="/docs-zzy/assets/js/170.c471fa16.js"><link rel="prefetch" href="/docs-zzy/assets/js/171.7e1f20f0.js"><link rel="prefetch" href="/docs-zzy/assets/js/172.5c379d94.js"><link rel="prefetch" href="/docs-zzy/assets/js/173.a2356956.js"><link rel="prefetch" href="/docs-zzy/assets/js/175.462e79a4.js"><link rel="prefetch" href="/docs-zzy/assets/js/176.9cf37049.js"><link rel="prefetch" href="/docs-zzy/assets/js/177.d03097df.js"><link rel="prefetch" href="/docs-zzy/assets/js/178.ce594d55.js"><link rel="prefetch" href="/docs-zzy/assets/js/179.6c67c249.js"><link rel="prefetch" href="/docs-zzy/assets/js/18.e01e1076.js"><link rel="prefetch" href="/docs-zzy/assets/js/180.52fb9e1d.js"><link rel="prefetch" href="/docs-zzy/assets/js/181.f37edc2f.js"><link rel="prefetch" href="/docs-zzy/assets/js/182.db8496ec.js"><link rel="prefetch" href="/docs-zzy/assets/js/183.666c93aa.js"><link rel="prefetch" href="/docs-zzy/assets/js/184.a5028353.js"><link rel="prefetch" href="/docs-zzy/assets/js/185.6becc5e2.js"><link rel="prefetch" href="/docs-zzy/assets/js/186.928b9f7e.js"><link rel="prefetch" href="/docs-zzy/assets/js/187.13974916.js"><link rel="prefetch" href="/docs-zzy/assets/js/188.19e8a717.js"><link rel="prefetch" href="/docs-zzy/assets/js/189.5caa0794.js"><link rel="prefetch" href="/docs-zzy/assets/js/19.94dc05cb.js"><link rel="prefetch" href="/docs-zzy/assets/js/190.707e6fe1.js"><link rel="prefetch" href="/docs-zzy/assets/js/191.d1642d03.js"><link rel="prefetch" href="/docs-zzy/assets/js/192.e76b65b2.js"><link rel="prefetch" href="/docs-zzy/assets/js/193.58c781e9.js"><link rel="prefetch" href="/docs-zzy/assets/js/194.467775df.js"><link rel="prefetch" href="/docs-zzy/assets/js/195.ffb35fac.js"><link rel="prefetch" href="/docs-zzy/assets/js/196.68cd7176.js"><link rel="prefetch" href="/docs-zzy/assets/js/197.b616de42.js"><link rel="prefetch" href="/docs-zzy/assets/js/198.c8e0d9fa.js"><link rel="prefetch" href="/docs-zzy/assets/js/199.547d1b96.js"><link rel="prefetch" href="/docs-zzy/assets/js/20.967b6ad9.js"><link rel="prefetch" href="/docs-zzy/assets/js/200.b27411af.js"><link rel="prefetch" href="/docs-zzy/assets/js/201.9fec6a21.js"><link rel="prefetch" href="/docs-zzy/assets/js/202.781ca8a2.js"><link rel="prefetch" href="/docs-zzy/assets/js/203.5bc8a0e9.js"><link rel="prefetch" href="/docs-zzy/assets/js/204.81a9c99a.js"><link rel="prefetch" href="/docs-zzy/assets/js/205.52f8fc52.js"><link rel="prefetch" href="/docs-zzy/assets/js/206.1d69ee13.js"><link rel="prefetch" href="/docs-zzy/assets/js/21.16780566.js"><link rel="prefetch" href="/docs-zzy/assets/js/22.5bbf7ba9.js"><link rel="prefetch" href="/docs-zzy/assets/js/23.776bf181.js"><link rel="prefetch" href="/docs-zzy/assets/js/24.a60d68a8.js"><link rel="prefetch" href="/docs-zzy/assets/js/25.1570c61d.js"><link rel="prefetch" href="/docs-zzy/assets/js/26.92ab932a.js"><link rel="prefetch" href="/docs-zzy/assets/js/27.504ede54.js"><link rel="prefetch" href="/docs-zzy/assets/js/28.3aeca2b4.js"><link rel="prefetch" href="/docs-zzy/assets/js/29.d612a0f4.js"><link rel="prefetch" href="/docs-zzy/assets/js/30.12290ef0.js"><link rel="prefetch" href="/docs-zzy/assets/js/31.e76bf292.js"><link rel="prefetch" href="/docs-zzy/assets/js/32.0d581241.js"><link rel="prefetch" href="/docs-zzy/assets/js/33.738a3689.js"><link rel="prefetch" href="/docs-zzy/assets/js/34.947e8e37.js"><link rel="prefetch" href="/docs-zzy/assets/js/35.41d95136.js"><link rel="prefetch" href="/docs-zzy/assets/js/36.665e1c4c.js"><link rel="prefetch" href="/docs-zzy/assets/js/37.c70ad7b0.js"><link rel="prefetch" href="/docs-zzy/assets/js/38.08fdfc4b.js"><link rel="prefetch" href="/docs-zzy/assets/js/39.4ff12d5c.js"><link rel="prefetch" href="/docs-zzy/assets/js/4.535e6d3a.js"><link rel="prefetch" href="/docs-zzy/assets/js/40.47416bf7.js"><link rel="prefetch" href="/docs-zzy/assets/js/41.a72f5746.js"><link rel="prefetch" href="/docs-zzy/assets/js/42.80dc4bda.js"><link rel="prefetch" href="/docs-zzy/assets/js/43.04ebe401.js"><link rel="prefetch" href="/docs-zzy/assets/js/44.4de45318.js"><link rel="prefetch" href="/docs-zzy/assets/js/45.e2ce8f3a.js"><link rel="prefetch" href="/docs-zzy/assets/js/46.5b5b2f72.js"><link rel="prefetch" href="/docs-zzy/assets/js/47.51a39a52.js"><link rel="prefetch" href="/docs-zzy/assets/js/48.3df4f657.js"><link rel="prefetch" href="/docs-zzy/assets/js/49.1b2b5cea.js"><link rel="prefetch" href="/docs-zzy/assets/js/5.90bf17f7.js"><link rel="prefetch" href="/docs-zzy/assets/js/50.d2500549.js"><link rel="prefetch" href="/docs-zzy/assets/js/51.5763bb06.js"><link rel="prefetch" href="/docs-zzy/assets/js/52.623081ca.js"><link rel="prefetch" href="/docs-zzy/assets/js/53.947891d7.js"><link rel="prefetch" href="/docs-zzy/assets/js/54.7c58a8aa.js"><link rel="prefetch" href="/docs-zzy/assets/js/55.97d5ded0.js"><link rel="prefetch" href="/docs-zzy/assets/js/56.a183afb9.js"><link rel="prefetch" href="/docs-zzy/assets/js/57.7b707ed2.js"><link rel="prefetch" href="/docs-zzy/assets/js/58.041d3c64.js"><link rel="prefetch" href="/docs-zzy/assets/js/59.08bde581.js"><link rel="prefetch" href="/docs-zzy/assets/js/6.43f7cb13.js"><link rel="prefetch" href="/docs-zzy/assets/js/60.05d24d18.js"><link rel="prefetch" href="/docs-zzy/assets/js/61.9036ad6a.js"><link rel="prefetch" href="/docs-zzy/assets/js/62.38af4da9.js"><link rel="prefetch" href="/docs-zzy/assets/js/63.e8e722ae.js"><link rel="prefetch" href="/docs-zzy/assets/js/64.647d8b94.js"><link rel="prefetch" href="/docs-zzy/assets/js/65.09c4cdc1.js"><link rel="prefetch" href="/docs-zzy/assets/js/66.19e3dfc1.js"><link rel="prefetch" href="/docs-zzy/assets/js/67.f353ca13.js"><link rel="prefetch" href="/docs-zzy/assets/js/68.f0bef705.js"><link rel="prefetch" href="/docs-zzy/assets/js/69.1cdc30c8.js"><link rel="prefetch" href="/docs-zzy/assets/js/7.57e6d995.js"><link rel="prefetch" href="/docs-zzy/assets/js/70.02fa5c70.js"><link rel="prefetch" href="/docs-zzy/assets/js/71.cc415905.js"><link rel="prefetch" href="/docs-zzy/assets/js/72.15fa2443.js"><link rel="prefetch" href="/docs-zzy/assets/js/73.2fc0da6f.js"><link rel="prefetch" href="/docs-zzy/assets/js/74.a8a6e6ee.js"><link rel="prefetch" href="/docs-zzy/assets/js/75.3c6ee1d3.js"><link rel="prefetch" href="/docs-zzy/assets/js/76.66cb7b81.js"><link rel="prefetch" href="/docs-zzy/assets/js/77.b371b743.js"><link rel="prefetch" href="/docs-zzy/assets/js/78.40b39282.js"><link rel="prefetch" href="/docs-zzy/assets/js/79.11a2dcfc.js"><link rel="prefetch" href="/docs-zzy/assets/js/8.de580b21.js"><link rel="prefetch" href="/docs-zzy/assets/js/80.251c5284.js"><link rel="prefetch" href="/docs-zzy/assets/js/81.fc0233ea.js"><link rel="prefetch" href="/docs-zzy/assets/js/82.743027ea.js"><link rel="prefetch" href="/docs-zzy/assets/js/83.8761e2ea.js"><link rel="prefetch" href="/docs-zzy/assets/js/84.505930ba.js"><link rel="prefetch" href="/docs-zzy/assets/js/85.4369fc8e.js"><link rel="prefetch" href="/docs-zzy/assets/js/86.94e563c7.js"><link rel="prefetch" href="/docs-zzy/assets/js/87.28486615.js"><link rel="prefetch" href="/docs-zzy/assets/js/88.00c3cb8f.js"><link rel="prefetch" href="/docs-zzy/assets/js/89.59da4926.js"><link rel="prefetch" href="/docs-zzy/assets/js/9.f0533b1f.js"><link rel="prefetch" href="/docs-zzy/assets/js/90.e95c3cec.js"><link rel="prefetch" href="/docs-zzy/assets/js/91.0e5a7efe.js"><link rel="prefetch" href="/docs-zzy/assets/js/92.8f5436bd.js"><link rel="prefetch" href="/docs-zzy/assets/js/93.b180ffcb.js"><link rel="prefetch" href="/docs-zzy/assets/js/94.cdda4492.js"><link rel="prefetch" href="/docs-zzy/assets/js/95.aeb95a11.js"><link rel="prefetch" href="/docs-zzy/assets/js/96.e6d20b74.js"><link rel="prefetch" href="/docs-zzy/assets/js/97.c7c50823.js"><link rel="prefetch" href="/docs-zzy/assets/js/98.1d569528.js"><link rel="prefetch" href="/docs-zzy/assets/js/99.f7f3e2da.js">
+    <link rel="stylesheet" href="/docs-zzy/assets/css/0.styles.8bb96e49.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-541b60e8><div data-v-541b60e8><div id="loader-wrapper" class="loading-wrapper" data-v-71fac282 data-v-541b60e8 data-v-541b60e8><div class="loader-main" data-v-71fac282><div data-v-71fac282></div><div data-v-71fac282></div><div data-v-71fac282></div><div data-v-71fac282></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-7ba865aa data-v-541b60e8 data-v-541b60e8><h3 class="title" style="display:none;" data-v-7ba865aa data-v-7ba865aa>南城花开zy</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-7ba865aa data-v-7ba865aa><input type="password" value="" data-v-7ba865aa> <span data-v-7ba865aa>Konck! Knock!</span> <button data-v-7ba865aa>OK</button></label> <div class="footer" style="display:none;" data-v-7ba865aa data-v-7ba865aa><span data-v-7ba865aa><i class="iconfont reco-theme" data-v-7ba865aa></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7ba865aa>vuePress-theme-reco</a></span> <span data-v-7ba865aa><i class="iconfont reco-copyright" data-v-7ba865aa></i> <a data-v-7ba865aa><span data-v-7ba865aa>南城花开zy</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div class="hide" data-v-541b60e8><header class="navbar" data-v-541b60e8><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/docs-zzy/" class="home-link router-link-active"><img src="/docs-zzy/images/logo.jpg" alt="南城花开zy" class="logo"> <span class="site-name">南城花开zy</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/docs-zzy/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      前端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/jsJC/" class="nav-link"><i class="iconfont undefined"></i>
+  JS基础
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/jsJJ/" class="nav-link"><i class="iconfont undefined"></i>
+  JS进阶
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/VAR/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/VAR/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/VAR/jquery/" class="nav-link"><i class="iconfont undefined"></i>
+  jquery
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-coding"></i>
+      后端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs-zzy/backEnd/node/" class="nav-link"><i class="iconfont undefined"></i>
+  node基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      其他
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs-zzy/other/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/other/interview/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/other/tool/" class="nav-link"><i class="iconfont undefined"></i>
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/后端/" class="nav-link"><i class="iconfont undefined"></i>
+  后端
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/其他/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/性能优化/" class="nav-link"><i class="iconfont undefined"></i>
+  性能优化
+</a></li></ul></div></div><div class="nav-item"><a href="/docs-zzy/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div> <a href="https://github.com/zzy11027" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    Github
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask" data-v-541b60e8></div> <aside class="sidebar" data-v-541b60e8><div class="personal-info-wrapper" data-v-5f8262b6 data-v-541b60e8><img src="/docs-zzy/images/logo.jpg" alt="author-avatar" class="personal-img" data-v-5f8262b6> <h3 class="name" data-v-5f8262b6>
+    南城花开zy
+  </h3> <div class="num" data-v-5f8262b6><div data-v-5f8262b6><h3 data-v-5f8262b6>185</h3> <h6 data-v-5f8262b6>文章</h6></div> <div data-v-5f8262b6><h3 data-v-5f8262b6>22</h3> <h6 data-v-5f8262b6>标签</h6></div></div> <hr data-v-5f8262b6></div> <nav class="nav-links"><div class="nav-item"><a href="/docs-zzy/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      前端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>基础</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/css/" class="nav-link"><i class="iconfont undefined"></i>
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/jsJC/" class="nav-link"><i class="iconfont undefined"></i>
+  JS基础
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/jsJJ/" class="nav-link"><i class="iconfont undefined"></i>
+  JS进阶
+</a></li></ul></li><li class="dropdown-item"><h4>框架</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/VAR/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/VAR/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-subitem"><a href="/docs-zzy/frontEnd/VAR/jquery/" class="nav-link"><i class="iconfont undefined"></i>
+  jquery
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-coding"></i>
+      后端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Node</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs-zzy/backEnd/node/" class="nav-link"><i class="iconfont undefined"></i>
+  node基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      其他
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs-zzy/other/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/other/interview/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/other/tool/" class="nav-link"><i class="iconfont undefined"></i>
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/后端/" class="nav-link"><i class="iconfont undefined"></i>
+  后端
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/其他/" class="nav-link"><i class="iconfont undefined"></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/docs-zzy/categories/性能优化/" class="nav-link"><i class="iconfont undefined"></i>
+  性能优化
+</a></li></ul></div></div><div class="nav-item"><a href="/docs-zzy/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div> <a href="https://github.com/zzy11027" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    Github
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-7ba865aa data-v-541b60e8><h3 class="title" style="display:none;" data-v-7ba865aa data-v-7ba865aa>js继承、js渲染机制、设计模式 、状态码</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-7ba865aa data-v-7ba865aa><input type="password" value="" data-v-7ba865aa> <span data-v-7ba865aa>Konck! Knock!</span> <button data-v-7ba865aa>OK</button></label> <div class="footer" style="display:none;" data-v-7ba865aa data-v-7ba865aa><span data-v-7ba865aa><i class="iconfont reco-theme" data-v-7ba865aa></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7ba865aa>vuePress-theme-reco</a></span> <span data-v-7ba865aa><i class="iconfont reco-copyright" data-v-7ba865aa></i> <a data-v-7ba865aa><span data-v-7ba865aa>南城花开zy</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div data-v-541b60e8><main class="page"><div class="page-title" style="display:none;"><h1>js继承、js渲染机制、设计模式 、状态码</h1> <hr> <div data-v-88e9c2ee><i class="iconfont reco-account" data-v-88e9c2ee><span data-v-88e9c2ee>南城花开zy</span></i> <i class="iconfont reco-date" data-v-88e9c2ee><span data-v-88e9c2ee>2020-05-02</span></i> <!----> <i class="iconfont reco-tag tags" data-v-88e9c2ee><span class="tag-item" data-v-88e9c2ee>面试</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><p>[toc]</p> <h1 id="js继承"><a href="#js继承" class="header-anchor">🌙</a> js继承</h1> <h3 id="_1-面向对象继承（类和实例）"><a href="#_1-面向对象继承（类和实例）" class="header-anchor">🌙</a> 1.面向对象继承（类和实例）</h3> <p>表现为 子类继承父类  主要是为实例和原型增加方法的
+多态（重写，重载）</p> <h3 id="_1-1-原型链继承"><a href="#_1-1-原型链继承" class="header-anchor">🌙</a> 1.1 原型链继承</h3> <p>将子类 B 的原型对象 重写成父类 	A  的一个实例</p> <div class="language- extra-class"><pre class="language-text"><code>function A() {
+}
+A.prototype.age = 19;
+A.prototype.say = function () {
+   console.log('来自A类原型的say方法')
+};
+function B() {}
+B.prototype = new A();  把B类的原型改写成一个A类的实例；
+let b = new B();
+</code></pre></div><p>把B的原型改写成A类的一个实例，此时通过 b.age 访问b的age属性，首先在私有属性中查找，私有属性中没有age属性，接着去b所属类的原型（B.prototype）上查找，此时原型对象是A的实例对象，在原型对象也没有age属性，然后通过原型对象的proto就找到了A.prototype上，A的prototype上有age属性</p> <p>原型继承是把子类公有的属性和私有的属性都变成了子类私有的属性；</p> <p>==缺点==：改写子类的原型对象，会导致子类原型对象上的constructor属性被改写，需要重新指定继承后的constructor；</p> <h3 id="_1-2-借用构造函数继承"><a href="#_1-2-借用构造函数继承" class="header-anchor">🌙</a> 1.2 借用构造函数继承</h3> <div class="language- extra-class"><pre class="language-text"><code>function A() {
+   this.a = 'aa';
+   this.say = function () {
+      console.log('A say');
+   }
+}
+A.prototype.public = 'public';
+function B() {
+   A.call(this);  this是B类的一个实例，A.call(this) 的意思是把A中的this就该成B的实例（而在B的构造函数中this就是B的实例）这样在A中通过this.xxx = xxx 的方式添加的属性都会添加到B的实例身上。
+}
+let b = new B();
+console.log(b);  {a: 'aa', say: fun.....}
+let b2 = new B();
+console.log(b2.say === b.say);  false;
+</code></pre></div><h5 id="借用构造函数继承："><a href="#借用构造函数继承：" class="header-anchor">🌙</a> 借用构造函数继承：</h5> <p>把父类当做普通函数，在子类的函数体里面，通过call方法执行 A.call(this)
+call方法是用来修改this指向的，这样一来就把A中的this修改成了b的实例；在函数A中通过this.xxx = xxx 添加的属性都添加到了B的实例身上；</p> <p>==特点==:只能把父类的私有属性和方法继承为子类的私有属性和方法；</p> <h3 id="_1-3组合继承"><a href="#_1-3组合继承" class="header-anchor">🌙</a> 1.3组合继承</h3> <p>组合继承：原型链继承 + 借用构造函数继承</p> <p>原型链继承：把父类私有的和共有的继承为子类公有的；
+借用构造函数继承：把父类私有的继承为子类私有的</p> <div class="language- extra-class"><pre class="language-text"><code>function A() {
+   this.a = '私有的'
+}
+A.prototype.text = '公有';
+A.prototype.say = function () {
+   console.log('A公有的say方法')
+};
+function B() {
+   A.call(this);  借用构造函数继承，继承父类私有的
+}
+B.prototype = new A();  原型链继承，继承父类私有和公有的属性；
+B.prototype.constructor = B;
+let b = new B();
+console.log(b.text);  公有的
+console.log(b.a);  私有的
+</code></pre></div><p>==缺点：==
+组合继承也并非没有缺点，组合继承会父类的私有继承两次，一份在借用构造函数继承时成为私有的，而另一份是在原型继承时成为公有的；</p> <h3 id="_1-4-原型式继承"><a href="#_1-4-原型式继承" class="header-anchor">🌙</a> 1.4 原型式继承</h3> <p>原型式继承：把父类的公有属性继承为子类的公有属性；
+创建一个新的对象，并且新对象的proto指向A.prototype，最后把这个新对象作为B类的原型；</p> <div class="language- extra-class"><pre class="language-text"><code>function A() {
+   this.private = 'private私有';
+}
+A.prototype.public = 'public公有';
+function B() {}
+B.prototype = Object.create(A.prototype);  创建一个指定原型的对象 创建一个对象，并且这个对象的__proto__ 指向A.prototype
+B.prototype.constructor = B;  原型式继承同样是修改B类原型的指向，所以需要重新指定构造函数
+let b = new B();
+console.log(b.public);
+</code></pre></div><h3 id="_1-5-寄生组合继承"><a href="#_1-5-寄生组合继承" class="header-anchor">🌙</a> 1.5 寄生组合继承</h3> <p>寄生组合式继承：原型式继承 + 借用构造函数继承</p> <div class="language- extra-class"><pre class="language-text"><code>function A() {
+   this.private = '私有属性';
+}
+A.prototype.public = '公有属性';
+function B() {
+   A.call(this);  借用构造函数继承
+   this.name = 'b私有的';
+}
+ 原型式继承：把父类公有的 继承为子类实例公有的
+B.prototype = Object.create(A.prototype);
+B.prototype.constructor = B;
+let b = new B();  {name: '私有的', private: '私有属性'}
+console.log(b.private);  继承过来的私有属性
+console.log(b.public);  继承过来到的公有属性
+
+</code></pre></div><h3 id="_1-6-冒充对象继承"><a href="#_1-6-冒充对象继承" class="header-anchor">🌙</a> 1.6 冒充对象继承</h3> <p>冒充对象继承：在子类的构造函数中生成一个父类的实例，把父类的这个实例进行遍历，把属性都添加子类的实例上；</p> <div class="language- extra-class"><pre class="language-text"><code>function A() {
+   this.private = '私有属性';
+}
+A.prototype.public = '公有属性';
+function B() {
+   this.name = 'B私有的属性';
+   let tmp = new A();
+   for (let key in tmp) {
+      this[key] = tmp[key];
+   }
+}
+let b = new B();
+console.log(b);
+
+</code></pre></div><h3 id="_1-7-es6-继承（extends-关键字）"><a href="#_1-7-es6-继承（extends-关键字）" class="header-anchor">🌙</a> 1.7  Es6 继承（extends 关键字）</h3> <p>原理：寄生组合式继承</p> <div class="language- extra-class"><pre class="language-text"><code>class A {
+   constructor (name, age) {
+      this.name = name;
+      this.age = age;
+   }
+    公有方法（添加到原型上）
+   say () {
+      console.log(`${this.name} say`);
+   }
+}
+ ES6继承时使用 extends 关键字实现继承
+class B extends A {  B继承A类
+   constructor (x, y, forName, forAge) {
+       注意：在使用ES6的extends关键字之前，必须使用super(); super表示父类的构造函数
+      super(forName, forAge);  注意：
+      this.x = x;
+      this.y = y;
+   }
+}
+let b = new B('x', 'y', 'mabin', 18);
+console.log(b);
+b.say();
+</code></pre></div><hr> <h1 id="js设计模式"><a href="#js设计模式" class="header-anchor">🌙</a> js设计模式</h1> <h3 id="_1、普通单例："><a href="#_1、普通单例：" class="header-anchor">🌙</a> 1、普通单例：</h3> <div class="language- extra-class"><pre class="language-text"><code>var stu1 = {
+  name: 'zhangsan',
+  age: 18,
+  sex: 'boy'
+};
+
+var stu2 = {
+  name: '李四',
+  age: 19,
+  sex: 'girl'
+};
+</code></pre></div><p>像上面这样，把描述一个事物的属性放到一个对象内这种封装方式称为单例模式。
+单例模式的优点是解决了全局变量互相覆盖的问题。而 stu1 和 stu2 两个变量名又称为命名空间</p> <h3 id="_2、-高级单例"><a href="#_2、-高级单例" class="header-anchor">🌙</a> 2、 高级单例</h3> <p>高级单例：高级单例模式不再是直接将一个对象赋值给命名空间，而是先执行一个自执行函数，在函数执行结束时返回一个对象；</p> <div class="language- extra-class"><pre class="language-text"><code>var person = (function () {
+  function eat(food) {
+    console.log(`I like eating ${food}`)
+  }
+  function hobby(h) {
+    console.log(`I like playing ${h}`)
+  }
+  var account = '$10000000';
+  var name = '王老五';
+  var age = 40;
+  return {
+    name: name,
+    age: age,
+    eat: eat,
+    hobby: hobby
+  }
+})();
+</code></pre></div><p>这样写，有一个优势，我们可以在自执行函数的作用域中声明变量和函数，这个作用域不会销毁，我们可以在最后返回对象里面选择导出哪些变量和方法给外界使用，不导出的，外界拿不到；</p> <p>单例模式虽然好用，但是有一个问题，有一个对象，我们就需要写一个这个对象，很繁琐。</p> <h3 id="_3、工厂模式"><a href="#_3、工厂模式" class="header-anchor">🌙</a> 3、工厂模式</h3> <div class="language- extra-class"><pre class="language-text"><code>function reg(name, age, sex) {
+  var obj = {}; // 原材料
+  obj.name = name; // 加工
+  obj.age = age; // 加工
+  obj.sex = sex; // 加工
+  return obj; // 出厂
+}
+
+let s1 = reg('阿三', 19, 'boy');
+let s2 = reg('李四', 18, 'girl');
+
+console.log(s1 === s2); // false
+</code></pre></div><p>工厂模式：像上面这样，把实现相同供的函数封装成一个函数，当我们需要创建一个实例的时候，我们就执行这个函数即可，并且每个对象都是单例；
+==优势==：高内聚，低耦合 提高了代码的复用度</p> <h4 id="_3-1什么是高内聚低耦合"><a href="#_3-1什么是高内聚低耦合" class="header-anchor">🌙</a> 3.1什么是高内聚低耦合</h4> <p>高内聚就是说相关度比较高的部分尽可能的集中，不要分散</p> <p>低耦合就是说两个相关的模块尽可以能把依赖的部分降低到最小，不要让两个系统产生强依赖</p> <p>高内聚低耦合是软件设计的一个基本原则，说的是在程序的各个模块中，尽量让每个模块独立，相关的处理尽量在单个模块中完成，就是俗话说的：该干嘛干嘛去！优点：能提降低各模块的之间的联系，减少“牵一发而动全身”的几率，提高开发效率，降低升级维护成本，也便于进行单元测试，提高软件质量。</p> <h1 id="构造函数"><a href="#构造函数" class="header-anchor">🌙</a> 构造函数</h1> <h3 id="构造函数模式："><a href="#构造函数模式：" class="header-anchor">🌙</a> 构造函数模式：</h3> <p>通过 new 调用一个函数，此时这个函数不再是普通函数，而是成为一个类，函数名称为类名，而通过 new 调用，自动返回这个类的一个实例。在构造函数中，我们需要抽象这个类型的属性和功能；</p> <div class="language- extra-class"><pre class="language-text"><code>function Teacher(name, age, subject, from) {
+  this.name = name;
+  this.mission = '传道受业解惑';
+  this.age = age;
+  this.subject = subject;
+  this.from = from;
+  this.teach = function () {
+    console.log(`${name} 老师教 ${subject} 学科`);
+  }
+} // Teacher 是一个类，这里类型抽象了老师的属性，一个老师有的属性有姓名，年龄，教授学科，哪个学校的老师，以及老师会讲课的功能。
+
+// 创建一个实例：
+let mrMa = new Teacher('马宾', 18, 'js', '珠峰培训');
+console.log(mrMa);
+
+let mrJiang = new Teacher('姜文', 19, 'Architect-架构师', '珠峰培训');
+console.log(mrJiang);
+console.log(typeof mrJiang); // object
+console.log(typeof mrMa); // object
+
+// 通过浏览器控制台查看，这两个实例（对象）的前面出现了 Teacher，此时说明 mrMa 和 mrJiang 都属于 Teacher 类的实例。
+</code></pre></div><hr> <h1 id="发布订阅"><a href="#发布订阅" class="header-anchor">🌙</a> 发布订阅</h1> <h4 id="发布订阅模式："><a href="#发布订阅模式：" class="header-anchor">🌙</a> 发布订阅模式：</h4> <p>是模拟DOM2级事件的事件池思想，在某一个时刻到来时，我们要做很多的事情（很多函数）。我们准备一个数组当做一个事件池，并且提供向事件池中加入函数的方法以及移除的方法，当时刻来临时，我们把事件池中的方法取出来挨个执行；</p> <blockquote><p>订阅：订阅该时刻到来，把想做的事情加入事件池,<br>
+发布：时刻真的到来了，把事件池中的方法都执行了</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// 准备事件池：
+let ary = [];
+
+function addListener(fn) {
+if (ary.includes(fn)) return;
+ary.push(fn)
+}
+function removeListener(fn) {
+// 数组.filter 方法，把数组中满足条件的（回调函数返回true的项）组成一个新数组，原数组不变；
+ary = ary.filter(item =&gt; item !== fn);
+}
+function fire() {
+ary.forEach(item =&gt; item())
+}
+
+function fn1(_this) {
+console.log(1)
+}
+function fn2() {
+console.log(3)
+}
+function fn3() {
+console.log(3)
+}
+
+// 订阅5s后的这个时刻
+add(fn1);
+add(fn2);
+add(fn3);
+
+// 取消订阅
+removeListener(fn3);
+
+setTimeout(function () {
+// 5s后时刻来临，就把事件池中的方法都执行了
+fire(this);
+}, 5000);
+</code></pre></div><hr> <h2 id="dom2"><a href="#dom2" class="header-anchor">🌙</a> DOM2</h2> <div class="language- extra-class"><pre><code>&gt;** 以为同一事件绑定多个事件函数；
+
+可以指定绑定的在捕获阶段还是绑定再冒泡阶**
+</code></pre></div><p>DOM2事件绑定</p> <div class="language- extra-class"><pre class="language-text"><code>元素.addEventListener('事件名称', 事件函数, false冒泡 | true捕获)
+box.addEventListener('click', function () {
+console.log(1)
+}, true);
+box.addEventListener('click', function () {
+console.log(2)
+}, false);
+
+box.addEventListener('click', function () {
+console.log(3);
+}, false);
+</code></pre></div><p>移除DOM2</p> <div class="language- extra-class"><pre class="language-text"><code>元素.removeEventListener('事件名称', 事件函数, false|true);
+</code></pre></div><p>DOM0级事件和DOM2级事件绑定的区别
+DOM2级事件给绑定的时候是给每个元素 的每个事件准备了一个事件池，类似于一个数组每次addEventListener()就是把事件函数放到事件池中，然后等事件触发的时候，再一个一个的把事件函数从事件池中拿出来执行一次；</p> <hr> <h1 id="async"><a href="#async" class="header-anchor">🌙</a> async</h1> <div class="language- extra-class"><pre><code>&gt; async / await 是 ES6 新增的关键字，用于把异步处理程序变为同步；
+</code></pre></div><ul><li>async 在函数定义时使用，用 async 函数声明的函数默认返回一个 promise 实例，返回值可以直接 .then</li> <li>await 右边如果是 Promise 就等着 Promise 状态发生变更，如果是同步代码直接执行；如果 await 执行的方法返回的 promise 对象，我们可以直接在对象使用 then 方法；此外，await 下面的代码都会变成微任务</li></ul> <p>在项目中我们经常将  async  Promise 和 ajax一起使用：</p> <div class="language- extra-class"><pre class="language-text"><code>function getAside() {
+  return new Promise((resolve, reject) =&gt; {
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', 'aside.json', true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+        resolve(JSON.parse(xhr.responseText))
+      }
+    };
+    xhr.send();
+  })
+}
+
+function getBanner() {
+  return new Promise((resolve, reject) =&gt; {
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', 'banner.json', true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+        resolve(JSON.parse(xhr.responseText))
+      }
+    };
+    xhr.send();
+  })
+}
+
+async function bindHTML() {
+  let aside = await getAside(); // await 会返回 promise resolve 后的值
+  let [,,third] = aside;
+  let banner = await getBanner(third);
+  console.log(aside);
+  console.log(banner);
+}
+bindHTML();
+</code></pre></div><h1 id="代码执行顺序（js的执行机制）"><a href="#代码执行顺序（js的执行机制）" class="header-anchor">🌙</a> 代码执行顺序（js的执行机制）</h1> <ul><li>1.js代码执行之前，浏览器会为其开辟全局作用域，然后对全局中的变量进行提升操作，对带var和带function进行提前的声明或者定义；</li> <li>2.变量提升结束后，js代码开始从上到下执行；执行的过程中对带var的变量进行赋值：
+<ul><li>2.1 如果是赋值一个基本数据类型的值，那么直接把基本类型的值存在作用域中，并且把变量和值关联起来；</li> <li>2.3 如果是赋值一个引用数据类型，浏览器会开辟一个堆内存，存储这个引用数类型的值，然后把这个堆内存的地址赋值给变量（这个时候这个内存地址是存在作用域中的）</li></ul></li> <li>3.如果执行过程遇到函数执行会经历以下几步：
+<ul><li>1.浏览器会函数代码执行再开辟一个新的作用域（一块新的栈内存）（这解释函数每次执行都是互相独立的，因为每次执行的环境不同）</li> <li>2.形参赋值，形参也是变量，把函数执行时实参赋值给形参。</li> <li>3.私有作用域中的变量提升，对私有作用域中的带var和带function的提前处理（在当前作用域中变量提升）</li></ul></li> <li>4从上到下执行函数代码
+<ul><li>4.1如果再遇到函数执行重复第三步</li></ul></li></ul> <hr> <h1 id="渲染机制"><a href="#渲染机制" class="header-anchor">🌙</a> 渲染机制</h1> <h4 id="http-请求阶段"><a href="#http-请求阶段" class="header-anchor">🌙</a> http 请求阶段</h4> <ul><li>浏览器得到地址栏中的地址，发送给DNS服务器</li> <li>DNS服务器进行域名解析，找到域名对应的IP地址</li> <li>把客户端的请求发送给上一步查出来的服务器地址</li> <li></li></ul> <h4 id="http-响应阶段"><a href="#http-响应阶段" class="header-anchor">🌙</a> http 响应阶段</h4> <ul><li>服务器接收到请求后，根据请求的信息，进行资源的整理，并且把响应的资源通过http返回给客户端（数据或者html、js、css文件等）</li> <li>根据资源的类型不同，浏览器会进行不同的操作，如 html 和 css 进行解析渲染，js进行解析并执行</li></ul> <h4 id="浏览器的渲染阶段"><a href="#浏览器的渲染阶段" class="header-anchor">🌙</a> 浏览器的渲染阶段</h4> <ul><li>解析 html 文件形成 DOM 树根据节点间关系组织树的节点关系；</li> <li>解析 CSS 形成 CSS 树</li> <li>把 DOM 树和 CSS 树组合形成 render 树</li> <li>接下来交给显卡，绘制成页面</li></ul> <h1 id="http-状态码"><a href="#http-状态码" class="header-anchor">🌙</a> http 状态码</h1> <table><thead><tr><th>状态码</th> <th>含义</th></tr></thead> <tbody><tr><td>200</td> <td>请求成功</td></tr> <tr><td>201</td> <td>已创建。成功请求并创建了新的资源</td></tr> <tr><td>202</td> <td>已接受。已经接受请求，但未处理完成</td></tr> <tr><td>203</td> <td>服务器已成功处理了请求，但返回的实体头部元信息不是在原始服务器上有效的确定集合，而是来自本地或者第三方的拷贝</td></tr> <tr><td>204</td> <td>服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</td></tr> <tr><td>205</td> <td>服务器处理成功，用户终端(例如：浏览器)应重置文档视图。可通过此返回码清除浏览器的表单域</td></tr> <tr><td>206</td> <td>服务器已经成功处理了部分 GET 请求。</td></tr> <tr><td>300</td> <td>。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端(例如：浏览器)选择</td></tr> <tr><td>301</td> <td>重定向</td></tr> <tr><td>302</td> <td>临时重定向</td></tr> <tr><td>303</td> <td>查看其它地址。与301类似。使用GET和POST请求查看</td></tr> <tr><td>304</td> <td>所请求的资源未修改，服务器返回此状态码时，不会返回任何资源</td></tr> <tr><td>305</td> <td>使用代理。所请求的资源必须通过代理访问</td></tr> <tr><td>306</td> <td>已经被废弃的HTTP状态码</td></tr> <tr><td>307</td> <td>临时重定向。与302类似。使用GET请求重定向</td></tr> <tr><td>400</td> <td>客户端请求的语法错误，服务器无法理解</td></tr> <tr><td>401</td> <td>请求要求用户的身份认证</td></tr> <tr><td>402</td> <td>保留，将来使用</td></tr> <tr><td>403</td> <td>服务器理解请求客户端的请求，但是拒绝执行此请求</td></tr> <tr><td>404</td> <td>服务器无法根据客户端的请求找到资源(网页)。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</td></tr> <tr><td>405</td> <td>客户端请求中的方法被禁止</td></tr> <tr><td>406</td> <td>服务器无法根据客户端请求的内容特性完成请求</td></tr> <tr><td>407</td> <td>请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权</td></tr> <tr><td>408</td> <td>服务器等待客户端发送的请求时间过长，超时</td></tr> <tr><td>409</td> <td>服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突</td></tr> <tr><td>410</td> <td>通知用户该资源已经不再可用，并且服务器拥有者希望所有指向这个资源的远端连接也被删除</td></tr> <tr><td>411</td> <td>服务器拒绝在没有定义 Content-Length 头的情况下接受请求</td></tr> <tr><td>412</td> <td>服务器在验证在请求的头字段中给出先决条件时，没能满足其中的一个或多个</td></tr> <tr><td>413</td> <td>服务器拒绝处理当前请求，因为该请求提交的实体数据大小超过了服务器愿意或者能够处理的范围</td></tr> <tr><td>414</td> <td>请求的URI 长度超过了服务器能够解释的长度，因此服务器拒绝对该请求提供服务</td></tr> <tr><td>415</td> <td>对于当前请求的方法和所请求的资源，请求中提交的实体并不是服务器中所支持的格式，因此请求被拒绝</td></tr> <tr><td>421</td> <td>从当前客户端所在的IP地址到服务器的连接数超过了服务器许可的最大范围</td></tr> <tr><td>422</td> <td>请求格式正确，但是由于含有语义错误，无法响应</td></tr> <tr><td>500</td> <td>服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理</td></tr> <tr><td>501</td> <td>服务器错误</td></tr> <tr><td>502</td> <td>作为网关或者代理工作的服务器尝试执行请求时，从上游服务器接收到无效的响应</td></tr> <tr><td>503</td> <td>由于临时的服务器维护或者过载，服务器当前无法处理请求</td></tr> <tr><td>504</td> <td>作为网关或者代理工作的服务器尝试执行请求时，未能及时从上游服务器(URI标识出的服务器，例如HTTP、FTP、LDAP)或者辅助服务器(例如DNS)收到响应。</td></tr> <tr><td>505</td> <td>服务器不支持，或者拒绝支持在请求中使用的 HTTP 版本</td></tr> <tr><td>506</td> <td>由《透明内容协商协议》(RFC 2295)扩展，代表服务器存在内部配置错误：被请求的协商变元资源被配置为在透明内容协商中使用自己，因此在一个协商处理中不是一个合适的重点</td></tr> <tr><td>507</td> <td>服务器无法存储完成请求所必须的内容</td></tr> <tr><td>509</td> <td>服务器达到带宽限制==这不是一个官方的状态码，====但是仍被广泛使用======</td></tr> <tr><td>510</td> <td>获取资源所需要的策略并没有没满足</td></tr></tbody></table></div> <footer class="page-edit" style="display:none;"><div class="edit-link"><a href="https://github.com/vuejs/vuepress/edit/master/docs/other/interview/js继承、js渲染机制、设计模式 、状态码.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></footer> <!----> <!----> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-514ac8aa><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_1-面向对象继承（类和实例）" class="sidebar-link" data-v-514ac8aa>1.面向对象继承（类和实例）</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_1-1-原型链继承" class="sidebar-link" data-v-514ac8aa>1.1 原型链继承</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_1-2-借用构造函数继承" class="sidebar-link" data-v-514ac8aa>1.2 借用构造函数继承</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_1-3组合继承" class="sidebar-link" data-v-514ac8aa>1.3组合继承</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_1-4-原型式继承" class="sidebar-link" data-v-514ac8aa>1.4 原型式继承</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_1-5-寄生组合继承" class="sidebar-link" data-v-514ac8aa>1.5 寄生组合继承</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_1-6-冒充对象继承" class="sidebar-link" data-v-514ac8aa>1.6 冒充对象继承</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_1-7-es6-继承（extends-关键字）" class="sidebar-link" data-v-514ac8aa>1.7  Es6 继承（extends 关键字）</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_1、普通单例：" class="sidebar-link" data-v-514ac8aa>1、普通单例：</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_2、-高级单例" class="sidebar-link" data-v-514ac8aa>2、 高级单例</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#_3、工厂模式" class="sidebar-link" data-v-514ac8aa>3、工厂模式</a></li><li class="level-3" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#构造函数模式：" class="sidebar-link" data-v-514ac8aa>构造函数模式：</a></li><li class="level-2" data-v-514ac8aa><a href="/docs-zzy/other/interview/js%E7%BB%A7%E6%89%BF%E3%80%81js%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81.html#dom2" class="sidebar-link" data-v-514ac8aa>DOM2</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-1e128e82 data-v-1e128e82><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-1e128e82><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-1e128e82></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-1e128e82></path></svg></div><APlayer audio="" fixed="true" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="0" list-max-height="250" storage-name="vuepress-plugin-meting"></APlayer></div></div>
+    <script src="/docs-zzy/assets/js/app.f5fb1f06.js" defer></script><script src="/docs-zzy/assets/js/3.7a4e40be.js" defer></script><script src="/docs-zzy/assets/js/1.f25b10cd.js" defer></script><script src="/docs-zzy/assets/js/174.6b48683a.js" defer></script>
+  </body>
+</html>
